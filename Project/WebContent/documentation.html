@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Test Professional User</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<!-- Customize StyleSheet -->
+<link rel="icon" href="Images/logo.png" type="image/png">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<!-- integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">-->
+<!-- Optional theme -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+	<!-- integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+	crossorigin="anonymous">-->
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container col-lg-offset-3 col-md-offset-2">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#myNavbar">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="index.jsp">Testers:</a>
+			</div>
+			<div>
+				<div class="collapse navbar-collapse collapse auto" id="myNavbar">
+					<ul class="nav navbar-nav">
+						<li><a href="index.jsp#create">create()</a></li>
+						<li><a href="index.jsp#update">update()</a></li>
+						<li><a href="index.jsp#remove">remove()</a></li>
+						<li><a href="index.jsp#findOne">findOne()</a></li>
+						<li><a href="index.jsp#findFromLocation">findFromLocation()</a></li>
+						<li><a href="index.jsp#findAll">findAll</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</nav>
+	<br>
+	<br>
+	<header>
+		<div class="container">
+			<div
+				class="page-header col-lg-8 col-md-10 col-md-offset-2 col-lg-offset-2 col-sm-11">
+				<h1>DOCUMENTATION</h1>
+			</div>
+		</div>
+	</header>
+	<br><br>
+	<div class="container"  id="results">
+		<div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-8 col-xs-offset-1" >
+			<section>
+			<br><p>Στο 1ο ατομικό project υλοποίησα μία δυναμική σελίδα χρησιμοποιώντας Java, Html, Css, MySql.
+				Σκοπός της είναι τεστάρει τον πίνακα pro_user στην βάση δεδομένων bids4job που θα χρησιμοποιηθεί στην ομαδική εργασία. Στην σελίδα ο χρήστης έχει την δυνατότητα να τεστάρει 6 queries για τον συγκεκριμένο πίνακα (create(),  update(), remove(), findOne(), findFromLocation(), findAll()). O χρήστης έχει άμεση πρόσβαση, μέσω της σελίδας, με την βάση δεδομένων. Παρακάτω υπαρχεί αναλυτικά η λειτουργία της σελίδας.
+			</p><br>
+			<h3>DataBase (bids4job)</h3><br>
+			<p>Η βάση δεδομένων bids4job υλοποιήθηκε στο MySQL Workbench και αποτελείτε από 5 πίνακες.<br><br>
+			<b>pro_user :</b>(pro_user_ID(primary key)  -  first_name  -  last_name  -  location  -  profession)<br>
+			Πίνακας που χαρακτηρίζει τους επαγγελματίες χρήστες της εφαρμογής.<br><br>
+			<b>simple_user :</b> (simple_user_ID(primary key)    -  first_name  -  last_name  -  location)<br>
+			Πίνακας που χαρακτηρίζει τους χρήστες της εφαρμογής.<br><br>
+			<b>bid :</b>(bid_ID(primary key)  -  task_ID(foreign key)  -  pro_user_ID(foreign key)  -  amount  -  bid_time)<br>
+			Πίνακας που χαρακτηρίζει τις προσφορές των επαγγελματιών χρηστών σε σχέση με ένα συγκεκριμένο task  κάποιου χρήστη της εφαρμογής.<br><br>
+			<b>task :</b>(task_ID(primary key)  -  deadline  -  work_field  -  simple_user_ID(foreign key))<br>
+			Πίνακας που χαρακτηρίζει τα tasks των χρηστών στην εφαρμογή.<br><br>
+			<b>contract :</b>(contract_ID(primary key)  -  bid_ID(foreign key)  -  task_ID(foreign key)  -  contact_time)<br>
+			Πίνακας που χαρακτηρίζει τα συμβόλαια που κλείνονται, αφού ο χρήστης δεχτεί κάποιο bid στο task του χρήστη.<br><br><br>
+			</p>
+			<h3>BackEnd</h3><br>
+			<p>Το λειτουργικό σύστημα της εφαρμογής είναι γραμμένο σε java και υλοποιήθηκε με Eclipse
+			Παρακάτω φαίνονται αναλυτικά τα πακέτα και οι κλάσεις του συστήματος.</p>
+			<p><ul>
+				<li>src</li>
+				<ul>
+					<li>domain</li>
+					<ul>
+						<li>ProfessionalUser.java</li>
+					</ul>
+					<li>dao</li>
+					<ul>
+						<li>ProfessionalUserDao.java</li>
+						<li>DaoUtils.java</li>
+					</ul>
+					<li>service</li>
+					<ul>
+						<li>ProfessionalUserService.java</li>
+					</ul>
+					<li>servelts</li>
+					<ul>
+						<li>CreateController.java</li>
+						<li>UpdateController.java</li>
+						<li>RemoteController.java</li>
+						<li>FindOneController.java</li>
+						<li>FindFromLocationController.java</li>
+						<li>FindAllController.java</li>
+					</ul>
+				</ul>
+			</ul>
+			<br>
+				Στο πακέτο domain υπάρχει η κλάση <b>ProfessionalUser.java</b>, η οποία είναι ο σκελετός του αντικειμένου ProfessionalUser. Υλοποιεί τους constructors / getters / setters και 3 πολύ βασικές μεθόδους.<br>
+				Στο πακέτο dao υπάρχει η κλάση <b>DaoUtils.java</b> η οποία είναι υπεύθυνη για την σύνδεση τουλειτουργικού μας συστήματος με την βάση δεδομένων. Επίσης υπάρχει η κλαση <b>ProfessionalUserDao.java</b> η οποία υλοποιεί κυρίως 6 μεθόδους που υλοποιούν τα 6 αντίστοιχα queries (create  -  update  -  remove  -  findAll  -  findFromLocation  -  findOne)<br>
+				Στο πακέτο service υπάρχει η κλάση <b>ProfessionalUserService.java</b> η οποία καλεί όλες τις  μεθόδους της κλάσης ProfessionalUserDao.<br>
+				Στο πακέτο servlets υπάρχουν οι κλάσεις  <b>CreateController.java, UpdateController.java, RemoteController.java, findOneController.java, FindFromLocationController.java, FindAllController.java</b> οι οποίες είναι servlets που δέχονται POST και GET actions από το index.jsp και αναλόγος το action και το Submit value απαντάνε στα ...Results.jsp αρχεία.<br><br><br></p>
+				<h3>FrontEnd</h3><br>
+				<p>Το FrontEnd κομμάτι είναι γραμμένο σε .jsp σελίδες και στατικές .html σελίδες.
+				Στον φάκελο WebContent υπάρχει ο φάκελος css που περιέχει τα .css αρχεία, η βιβλιοθήκε της MySQL – Java και όλα τα .jsp / .html αρχεία.<br><b>header.html :</b> Στατικό html αρχείο που είναι υπεύθυνο για τον σκελετό του index.jsp<br>
+				<b>headerResults.html :</b> Στατικό html αρχείο που είναι υπεύθυνο για τους σκελετούς όλων των .jsp αρχείων για τα αποτελέσματα.<br>
+				<b>footer.html :</b> Στατικό html αρχείο που είναι υπεύθηνο για τον σκελετό όλων των .jsp αρχείων.<br>
+				<b>index.jsp :</b> Είναι υπεύθυνο για τις 6 φόρμες της αρχικής σελίδας. Κάθε φόρμα έχει δικό της submit value, έτσι το servlet controller.java ελέγχει ποια λειτουργία πρέπει να κάνει.<br>
+				<b>createResults.jsp :</b> Είναι υπεύθυνο για τα αποτελέσματα που θα δείξει στον χρήστη αν επιλέξει την λειτουργία create().<br>
+				<b>updateResults.jsp :</b> Είναι υπεύθυνο για τα αποτελέσματα που θα δείξει στον χρήστη αν επιλέξει την λειτουργία update().<br>
+				<b>removeResults.jsp :</b> Είναι υπεύθυνο για τα αποτελέσματα που θα δείξει στον χρήστη αν επιλέξει την λειτουργία remove().<br>
+				<b>findOneResults.jsp :</b> Είναι υπεύθυνο για τα αποτελέσματα που θα δείξει στον χρήστη αν επιλέξει την λειτουργία findOne().<br>
+				<b>findFromLocationResults.jsp :</b> Είναι υπεύθυνο για τα αποτελέσματα που θα δείξει στον χρήστη αν επιλέξει την λειτουργία findFromLocation().<br>
+				<b>findAll.jsp :</b> Είναι υπεύθυνο για τα αποτελέσματα που θα δείξει στον χρήστη αν επιλέξει την λειτουργία FindAll().<br>
+				<b>errorPage.jsp :</b> Είναι υπεύθυνο να τυπώνει το σωστό μύνημα λάθους, όποτε αυτό χρειάζεται.<br>
+				</p>
+				<br><br>
+				Note: Κάποιοι Professional Users δεν μπορούν να διαγραφούν(Professional User ID: 1-4,6,10-18), γιατί υπάρχουν σαν foreign keys σε κάποια bids, στο table:bid και δεν έχουμε αποφασίσει ακόμα πως θα το χειριστούμε στην ομαδική εργασία.<br><br><br>
+			</section>
+		</div>
+	</div>
+
+	<div class="panel-footer" align="center" id="foot">
+        <p>&copy; 2016 by Ioannis Kranas<br></p>
+        <a href="https://www.linkedin.com/in/ioannis-kranas-4674b3124" target = _blank>  Ioannis Kranas</a>
+    </div>
+</body>
+</html>
